@@ -12,25 +12,26 @@ header{
     text-align:center;
     font-size: 32px;
     width: fit-content;
-    padding-top: 50px;
+    padding-top: 10px;
     font-size: 30pt;
 }
     
 
 
 
-td{
-    background-color: rgb(216, 236, 253);
-}
-td:hover{
-     background: #0066CC;
-        
-}
+
 .taisen{
     display: flex;
     height: 250px;
     justify-content: center;
     margin: 0;
+    td{
+        background-color: rgb(216, 236, 253);
+    }
+    td:hover{
+         background: #0066CC;
+            
+    }
 
     .pitcher{
         margin-right: 100px;
@@ -78,15 +79,16 @@ img{
     margin: 0;
     margin: auto;
     text-align:center;
+    font-size: 15pt;
     
     .cpu_tokyu{
         margin-right: 100px;
-        width: 450px;
+        width: 400px;
         background-color: rgb(216, 236, 253);
     }
     .jibun_nerai{
         margin-left: 100px;
-        width: 450px;
+        width: 400px;
         background-color: rgb(216, 236, 253);
     }
 }
@@ -100,25 +102,28 @@ img{
     background-color: aliceblue;
 
 }
-.batter{
+img{
      mix-blend-mode: multiply;
 }
 
 .kousin{
     height: 80px;
     justify-content: center;
-
-    span{
+    font-size: 15pt;
+    
+    .next{
         position: relative;
         top: 15%;
         border: 1px solid gray;
         padding-right: 20px;
         padding-left: 20px;
+        background-color: aliceblue;
+
 
         
         font-size: larger;
     }
-    span:hover{
+    .next:hover{
         background: rgba(255, 220, 107, 0.993);
 
     }
@@ -127,8 +132,31 @@ img{
 .hantei_1{
     display: none;
     position: absolute;
-    font-size: 200px;
+    font-size: 150px;
     color: yellow;
-    top: 50%;
-    left: 10%;
+    top: 40%;
+    left: 12%;
 }
+
+.daritu{
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    position: relative;
+    margin-bottom: 100px;
+    table{
+        background-color:white;
+    }
+    p{
+        border: 1px solid black;
+        
+    }
+    .ritu{
+        width: 40px;
+    }
+}
+
+
+    .re:hover{
+        background-color: #0066CC;
+    }
