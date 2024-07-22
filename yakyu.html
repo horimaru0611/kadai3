@@ -315,6 +315,7 @@ $("#swing_button").on("click",function(){
     a = Math.random()*2; //小数点0.000001~0.99999
     b = Math.ceil(a); 
     img.src = './img/nageru.png';
+    $("#toukyu").html(cpu);
     
     if(n==1){
         $("#1").css("background","red"); 
@@ -394,7 +395,7 @@ $("#swing_button").on("click",function(){
         img_2.src = './img/karaburi.png';
 
     }
-    $("#toukyu").html(cpu);
+    
     da = da + 1;
     ritu_da_h = h / da ;
     $("#ritu").html(ritu_da_h.toFixed(3));
