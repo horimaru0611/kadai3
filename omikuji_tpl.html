@@ -8,46 +8,63 @@
 <title>おみくじ</title>
 </head>
 <body>
-
+    
+    <img class="haikei" src="./img/yakyujo.jpeg" alt="">
+<div class="body">
 <header>
-    <h1>野球</h1>
+    <h5>野球</h5>
 </header>
 
 <main>
     
-    <p id="echo"></p>
+    <p class="hantei">結果：<span id="kekka"></p>
+   
 <div class ="taisen">
-    <img src="./img/motion.png" alt="">
-    <img src="./img/utumae.png" alt="">
-</div>
-
+    <img id = "toukyugo" class="pitcher" src="./img/motion.png" alt="">
     <table border="1">
         <tr>
-          <td id="1">内角高め</td><td id="2">真ん中高め</td><td id="3">外角高め</td>
+          <td id="1">　　　</td><td id="2">　　　</td><td id="3">　　　</td>
         </tr>
         <tr>
-          <td id="4">内角</td><td id="5">真ん中</td><td id="6">外角</td>
+          <td id="4">　　　</td><td id="5">　　　</td><td id="6">　　　</td>
         </tr>
         <tr>
-          <td id="7">内角低め</td><td id="8">真ん中低め</td><td id="9">外角低め</td>
+          <td id="7">　　　</td><td id="8">　　　</td><td id="9">　　　</td>
         </tr>
-      </table>
+ </table>
+    <img id ="swinggo" class="batter" src="./img/utumae.png" alt="">
+</div>
 
 
-      <p>結果：<span id="kekka"></div></p>
-      <p>cpu:<span id="toukyu"></div></p>
+<div class="koumoku"><p class="cpu_tokyu">投球(cpu):<span id="toukyu"></p>
+ <div  class="swing"><p id="swing_button">スイング</p><p id="minogasi">見逃す</p></div>
+<p class="jibun_nerai">狙い球(あなた)：<span id="jibun"></p></div>
+    
+   
+
+    <div class="kousin">
+        <a onclick="window.location.reload(true)";>
+          <i class="fa" aria-hidden="ture"></i><span>次の球</span>
+        </a></div>
+
+        <div id="hantei_a" class="hantei_1">
+            HOME RUN
+          </div>
+    </div>
 </main>
 
-<footer>フッター</footer>
 <script>
 
 
-    const r = Math.random()*13; //小数点0.000001~0.99999
-    const n = Math.ceil(r); 
+    let r = Math.random()*13; //小数点0.000001~0.99999
+    let n = Math.ceil(r); 
 
  
 
-let i_h,i_m,i_l,m_h,m_m,m_l,o_h,o_m,o_l,naiyou,cpu;
+let i_h,i_m,i_l,m_h,m_m,m_l,o_h,o_m,o_l,naiyou,cpu,a,b;
+
+var img = document.getElementById('toukyugo');
+var img_2 = document.getElementById('swinggo');
 
 if(n==1){ //投球インハイ
     i_h = 0; //インハイ
@@ -219,49 +236,157 @@ if(n==13){ //外角ボール球
 }
 $("#1").on("click",function(){
     naiyou = i_h;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("内角高め");
 });
 $("#2").on("click",function(){
     naiyou = m_h;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("真ん中高め");
 });
 $("#3").on("click",function(){
     naiyou = o_h;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("外角高め");
 });
 $("#4").on("click",function(){
     naiyou = i_m;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("内角");
 });
 $("#5").on("click",function(){
     naiyou = m_m;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("真ん中");
 });
 $("#6").on("click",function(){
     naiyou = o_m;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("外角");
 });
 $("#7").on("click",function(){
     naiyou = i_l;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("内角低め");
 });
 $("#8").on("click",function(){
     naiyou = m_l;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("真ん中低め");
 });
 $("#9").on("click",function(){
     naiyou = o_l;
-    $("#kekka").html(naiyou);
-    $("#toukyu").html(cpu);
+    $("#jibun").html("外角低め");
 });
+
+$("#swing_button").on("click",function(){
+    a = Math.random()*2; //小数点0.000001~0.99999
+    b = Math.ceil(a); 
+    img.src = './img/nageru.png';
+    
+    if(n==1){
+        $("#1").css("background","red"); 
+    }
+    if(n==2){
+        $("#2").css("background","red"); 
+    }
+    if(n==3){
+        $("#3").css("background","red"); 
+    }
+    if(n==4){
+        $("#4").css("background","red"); 
+    }
+    if(n==5){
+        $("#5").css("background","red"); 
+    }
+    if(n==6){
+        $("#6").css("background","red"); 
+    }
+    if(n==7){
+        $("#7").css("background","red"); 
+    }
+    if(n==8){
+        $("#8").css("background","red"); 
+    }
+    if(n==9){
+        $("#9").css("background","red"); 
+    }
+
+    if(naiyou==0){
+        $("#kekka").html("ホームラン！！！");
+        img_2.src = './img/homerun.png';
+        $("#hantei_a").fadeIn(5000);
+    }
+    if(naiyou==1){
+        img_2.src = './img/hit_bonda.png';
+        if(b==1){
+            $("#kekka").html("ツーベースヒット！！");
+            
+        }
+        if(b==2){
+            $("#kekka").html("ヒット！");
+        }
+    }
+    if(naiyou==2){
+        img_2.src = './img/hit_bonda.png';
+        if(b==1){
+            $("#kekka").html("ヒット！");
+            
+        }
+        if(b==2){
+            $("#kekka").html("アウト");
+        }
+    }
+    if(naiyou==3){
+        img_2.src = './img/hit_bonda.png';
+        if(b==1){
+            $("#kekka").html("アウト");
+        }
+        if(b==2){
+            $("#kekka").html("ファール");
+        }
+    }
+    if(naiyou==4){
+        $("#kekka").html("空振り");
+        img_2.src = './img/karaburi.png';
+
+    }
+    $("#toukyu").html(cpu);
+
+});
+
+$("#minogasi").on("click",function(){
+    img_2.src = './img/minogasi.png';
+    img.src = './img/nageru.png';
+    $("#toukyu").html(cpu);
+    if(n==10 || n==11 || n== 12 || n==13){
+        $("#kekka").html("ボール");
+    }else{
+        $("#kekka").html("ストライク");
+    }
+    if(n==1){
+        $("#1").css("background","red"); 
+    }
+    if(n==2){
+        $("#2").css("background","red"); 
+    }
+    if(n==3){
+        $("#3").css("background","red"); 
+    }
+    if(n==4){
+        $("#4").css("background","red"); 
+    }
+    if(n==5){
+        $("#5").css("background","red"); 
+    }
+    if(n==6){
+        $("#6").css("background","red"); 
+    }
+    if(n==7){
+        $("#7").css("background","red"); 
+    }
+    if(n==8){
+        $("#8").css("background","red"); 
+    }
+    if(n==9){
+        $("#9").css("background","red"); 
+    }
+});
+
+
+
 
 /*
 $("#pull").on("click",function(){
